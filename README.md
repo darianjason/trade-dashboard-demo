@@ -1,6 +1,6 @@
 # DoiT Take-Home Assessment
 
-A demo project for the DoiT Frontend Engineer take-home assessment complete with routing, i18n and l10n.
+A demo project complete with routing, i18n and l10n.
 
 ## Tech Stack
 
