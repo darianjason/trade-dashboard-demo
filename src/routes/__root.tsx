@@ -1,15 +1,9 @@
 import { Outlet, createRootRoute, redirect } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import i18n from "@/i18n";
 
 const SUPPORTED_LOCALES = ["en", "id"];
 
-const RootLayoutComponent = () => (
-  <>
-    <Outlet />
-    <TanStackRouterDevtools />
-  </>
-);
+const RootLayoutComponent = () => <Outlet />;
 
 export const Route = createRootRoute({
   beforeLoad: ({ location }) => {
