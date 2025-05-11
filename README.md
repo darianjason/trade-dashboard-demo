@@ -1,4 +1,4 @@
-# DoiT Take-Home Assessment
+# Trade Dashboard Demo
 
 A demo project complete with routing, i18n and l10n.
 
