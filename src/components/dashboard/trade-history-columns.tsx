@@ -40,7 +40,8 @@ export function useTradeHistoryColumns(): Array<ColumnDef<Trade>> {
           </div>
         ),
         enableSorting: false,
-        enableHiding: false,
+        enableGlobalFilter: false,
+        size: 36,
       },
       {
         id: "trade",
@@ -61,6 +62,7 @@ export function useTradeHistoryColumns(): Array<ColumnDef<Trade>> {
           );
         },
         enableSorting: false,
+        size: 500,
       },
       {
         accessorKey: "orderAmount",
@@ -75,6 +77,7 @@ export function useTradeHistoryColumns(): Array<ColumnDef<Trade>> {
             })}
           </span>
         ),
+        size: 128,
         enableGlobalFilter: false,
       },
       {
@@ -85,7 +88,7 @@ export function useTradeHistoryColumns(): Array<ColumnDef<Trade>> {
             {t("deliveryDate", { date: row.getValue("deliveryDate") })}
           </span>
         ),
-        size: 150,
+        size: 128,
         enableGlobalFilter: false,
       },
       {
@@ -121,6 +124,7 @@ export function useTradeHistoryColumns(): Array<ColumnDef<Trade>> {
             </div>
           );
         },
+        size: 200,
       },
     ],
     [t],
