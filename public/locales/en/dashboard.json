@@ -1,0 +1,17 @@
+{
+  "overview": "Overview",
+  "notifications": "Notification",
+  "analytics": "Analytics",
+  "savedreports": "Saved Reports",
+  "tradehistory": "Trade History",
+  "userreport": "User Report",
+  "downloadcsv": "Download CSV",
+  "add": "Add",
+  "filters": "Filter",
+  "view": "View",
+  "previous": "Previous",
+  "next": "Next",
+  "processing": "Processing",
+  "success": "Success",
+  "declined": "Declined"
+}
