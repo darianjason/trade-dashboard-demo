@@ -11,60 +11,367 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as IndexImport } from './routes/index'
+import { Route as LangRouteImport } from './routes/$lang/route'
+import { Route as LangIndexImport } from './routes/$lang/index'
+import { Route as LangUsersImport } from './routes/$lang/users'
+import { Route as LangTasksImport } from './routes/$lang/tasks'
+import { Route as LangReportingImport } from './routes/$lang/reporting'
+import { Route as LangProjectsImport } from './routes/$lang/projects'
+import { Route as LangDashboardRouteImport } from './routes/$lang/dashboard/route'
+import { Route as LangDashboardIndexImport } from './routes/$lang/dashboard/index'
+import { Route as LangDashboardUserReportsImport } from './routes/$lang/dashboard/user-reports'
+import { Route as LangDashboardTradeHistoryImport } from './routes/$lang/dashboard/trade-history'
+import { Route as LangDashboardSavedReportsImport } from './routes/$lang/dashboard/saved-reports'
+import { Route as LangDashboardOverviewImport } from './routes/$lang/dashboard/overview'
+import { Route as LangDashboardNotificationsImport } from './routes/$lang/dashboard/notifications'
+import { Route as LangDashboardAnalyticsImport } from './routes/$lang/dashboard/analytics'
 
 // Create/Update Routes
 
-const IndexRoute = IndexImport.update({
+const LangRouteRoute = LangRouteImport.update({
+  id: '/$lang',
+  path: '/$lang',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LangIndexRoute = LangIndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => LangRouteRoute,
+} as any)
+
+const LangUsersRoute = LangUsersImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+
+const LangTasksRoute = LangTasksImport.update({
+  id: '/tasks',
+  path: '/tasks',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+
+const LangReportingRoute = LangReportingImport.update({
+  id: '/reporting',
+  path: '/reporting',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+
+const LangProjectsRoute = LangProjectsImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+
+const LangDashboardRouteRoute = LangDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => LangRouteRoute,
+} as any)
+
+const LangDashboardIndexRoute = LangDashboardIndexImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LangDashboardRouteRoute,
+} as any)
+
+const LangDashboardUserReportsRoute = LangDashboardUserReportsImport.update({
+  id: '/user-reports',
+  path: '/user-reports',
+  getParentRoute: () => LangDashboardRouteRoute,
+} as any)
+
+const LangDashboardTradeHistoryRoute = LangDashboardTradeHistoryImport.update({
+  id: '/trade-history',
+  path: '/trade-history',
+  getParentRoute: () => LangDashboardRouteRoute,
+} as any)
+
+const LangDashboardSavedReportsRoute = LangDashboardSavedReportsImport.update({
+  id: '/saved-reports',
+  path: '/saved-reports',
+  getParentRoute: () => LangDashboardRouteRoute,
+} as any)
+
+const LangDashboardOverviewRoute = LangDashboardOverviewImport.update({
+  id: '/overview',
+  path: '/overview',
+  getParentRoute: () => LangDashboardRouteRoute,
+} as any)
+
+const LangDashboardNotificationsRoute = LangDashboardNotificationsImport.update(
+  {
+    id: '/notifications',
+    path: '/notifications',
+    getParentRoute: () => LangDashboardRouteRoute,
+  } as any,
+)
+
+const LangDashboardAnalyticsRoute = LangDashboardAnalyticsImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => LangDashboardRouteRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
+    '/$lang': {
+      id: '/$lang'
+      path: '/$lang'
+      fullPath: '/$lang'
+      preLoaderRoute: typeof LangRouteImport
       parentRoute: typeof rootRoute
+    }
+    '/$lang/dashboard': {
+      id: '/$lang/dashboard'
+      path: '/dashboard'
+      fullPath: '/$lang/dashboard'
+      preLoaderRoute: typeof LangDashboardRouteImport
+      parentRoute: typeof LangRouteImport
+    }
+    '/$lang/projects': {
+      id: '/$lang/projects'
+      path: '/projects'
+      fullPath: '/$lang/projects'
+      preLoaderRoute: typeof LangProjectsImport
+      parentRoute: typeof LangRouteImport
+    }
+    '/$lang/reporting': {
+      id: '/$lang/reporting'
+      path: '/reporting'
+      fullPath: '/$lang/reporting'
+      preLoaderRoute: typeof LangReportingImport
+      parentRoute: typeof LangRouteImport
+    }
+    '/$lang/tasks': {
+      id: '/$lang/tasks'
+      path: '/tasks'
+      fullPath: '/$lang/tasks'
+      preLoaderRoute: typeof LangTasksImport
+      parentRoute: typeof LangRouteImport
+    }
+    '/$lang/users': {
+      id: '/$lang/users'
+      path: '/users'
+      fullPath: '/$lang/users'
+      preLoaderRoute: typeof LangUsersImport
+      parentRoute: typeof LangRouteImport
+    }
+    '/$lang/': {
+      id: '/$lang/'
+      path: '/'
+      fullPath: '/$lang/'
+      preLoaderRoute: typeof LangIndexImport
+      parentRoute: typeof LangRouteImport
+    }
+    '/$lang/dashboard/analytics': {
+      id: '/$lang/dashboard/analytics'
+      path: '/analytics'
+      fullPath: '/$lang/dashboard/analytics'
+      preLoaderRoute: typeof LangDashboardAnalyticsImport
+      parentRoute: typeof LangDashboardRouteImport
+    }
+    '/$lang/dashboard/notifications': {
+      id: '/$lang/dashboard/notifications'
+      path: '/notifications'
+      fullPath: '/$lang/dashboard/notifications'
+      preLoaderRoute: typeof LangDashboardNotificationsImport
+      parentRoute: typeof LangDashboardRouteImport
+    }
+    '/$lang/dashboard/overview': {
+      id: '/$lang/dashboard/overview'
+      path: '/overview'
+      fullPath: '/$lang/dashboard/overview'
+      preLoaderRoute: typeof LangDashboardOverviewImport
+      parentRoute: typeof LangDashboardRouteImport
+    }
+    '/$lang/dashboard/saved-reports': {
+      id: '/$lang/dashboard/saved-reports'
+      path: '/saved-reports'
+      fullPath: '/$lang/dashboard/saved-reports'
+      preLoaderRoute: typeof LangDashboardSavedReportsImport
+      parentRoute: typeof LangDashboardRouteImport
+    }
+    '/$lang/dashboard/trade-history': {
+      id: '/$lang/dashboard/trade-history'
+      path: '/trade-history'
+      fullPath: '/$lang/dashboard/trade-history'
+      preLoaderRoute: typeof LangDashboardTradeHistoryImport
+      parentRoute: typeof LangDashboardRouteImport
+    }
+    '/$lang/dashboard/user-reports': {
+      id: '/$lang/dashboard/user-reports'
+      path: '/user-reports'
+      fullPath: '/$lang/dashboard/user-reports'
+      preLoaderRoute: typeof LangDashboardUserReportsImport
+      parentRoute: typeof LangDashboardRouteImport
+    }
+    '/$lang/dashboard/': {
+      id: '/$lang/dashboard/'
+      path: '/'
+      fullPath: '/$lang/dashboard/'
+      preLoaderRoute: typeof LangDashboardIndexImport
+      parentRoute: typeof LangDashboardRouteImport
     }
   }
 }
 
 // Create and export the route tree
 
+interface LangDashboardRouteRouteChildren {
+  LangDashboardAnalyticsRoute: typeof LangDashboardAnalyticsRoute
+  LangDashboardNotificationsRoute: typeof LangDashboardNotificationsRoute
+  LangDashboardOverviewRoute: typeof LangDashboardOverviewRoute
+  LangDashboardSavedReportsRoute: typeof LangDashboardSavedReportsRoute
+  LangDashboardTradeHistoryRoute: typeof LangDashboardTradeHistoryRoute
+  LangDashboardUserReportsRoute: typeof LangDashboardUserReportsRoute
+  LangDashboardIndexRoute: typeof LangDashboardIndexRoute
+}
+
+const LangDashboardRouteRouteChildren: LangDashboardRouteRouteChildren = {
+  LangDashboardAnalyticsRoute: LangDashboardAnalyticsRoute,
+  LangDashboardNotificationsRoute: LangDashboardNotificationsRoute,
+  LangDashboardOverviewRoute: LangDashboardOverviewRoute,
+  LangDashboardSavedReportsRoute: LangDashboardSavedReportsRoute,
+  LangDashboardTradeHistoryRoute: LangDashboardTradeHistoryRoute,
+  LangDashboardUserReportsRoute: LangDashboardUserReportsRoute,
+  LangDashboardIndexRoute: LangDashboardIndexRoute,
+}
+
+const LangDashboardRouteRouteWithChildren =
+  LangDashboardRouteRoute._addFileChildren(LangDashboardRouteRouteChildren)
+
+interface LangRouteRouteChildren {
+  LangDashboardRouteRoute: typeof LangDashboardRouteRouteWithChildren
+  LangProjectsRoute: typeof LangProjectsRoute
+  LangReportingRoute: typeof LangReportingRoute
+  LangTasksRoute: typeof LangTasksRoute
+  LangUsersRoute: typeof LangUsersRoute
+  LangIndexRoute: typeof LangIndexRoute
+}
+
+const LangRouteRouteChildren: LangRouteRouteChildren = {
+  LangDashboardRouteRoute: LangDashboardRouteRouteWithChildren,
+  LangProjectsRoute: LangProjectsRoute,
+  LangReportingRoute: LangReportingRoute,
+  LangTasksRoute: LangTasksRoute,
+  LangUsersRoute: LangUsersRoute,
+  LangIndexRoute: LangIndexRoute,
+}
+
+const LangRouteRouteWithChildren = LangRouteRoute._addFileChildren(
+  LangRouteRouteChildren,
+)
+
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
+  '/$lang': typeof LangRouteRouteWithChildren
+  '/$lang/dashboard': typeof LangDashboardRouteRouteWithChildren
+  '/$lang/projects': typeof LangProjectsRoute
+  '/$lang/reporting': typeof LangReportingRoute
+  '/$lang/tasks': typeof LangTasksRoute
+  '/$lang/users': typeof LangUsersRoute
+  '/$lang/': typeof LangIndexRoute
+  '/$lang/dashboard/analytics': typeof LangDashboardAnalyticsRoute
+  '/$lang/dashboard/notifications': typeof LangDashboardNotificationsRoute
+  '/$lang/dashboard/overview': typeof LangDashboardOverviewRoute
+  '/$lang/dashboard/saved-reports': typeof LangDashboardSavedReportsRoute
+  '/$lang/dashboard/trade-history': typeof LangDashboardTradeHistoryRoute
+  '/$lang/dashboard/user-reports': typeof LangDashboardUserReportsRoute
+  '/$lang/dashboard/': typeof LangDashboardIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
+  '/$lang/projects': typeof LangProjectsRoute
+  '/$lang/reporting': typeof LangReportingRoute
+  '/$lang/tasks': typeof LangTasksRoute
+  '/$lang/users': typeof LangUsersRoute
+  '/$lang': typeof LangIndexRoute
+  '/$lang/dashboard/analytics': typeof LangDashboardAnalyticsRoute
+  '/$lang/dashboard/notifications': typeof LangDashboardNotificationsRoute
+  '/$lang/dashboard/overview': typeof LangDashboardOverviewRoute
+  '/$lang/dashboard/saved-reports': typeof LangDashboardSavedReportsRoute
+  '/$lang/dashboard/trade-history': typeof LangDashboardTradeHistoryRoute
+  '/$lang/dashboard/user-reports': typeof LangDashboardUserReportsRoute
+  '/$lang/dashboard': typeof LangDashboardIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/': typeof IndexRoute
+  '/$lang': typeof LangRouteRouteWithChildren
+  '/$lang/dashboard': typeof LangDashboardRouteRouteWithChildren
+  '/$lang/projects': typeof LangProjectsRoute
+  '/$lang/reporting': typeof LangReportingRoute
+  '/$lang/tasks': typeof LangTasksRoute
+  '/$lang/users': typeof LangUsersRoute
+  '/$lang/': typeof LangIndexRoute
+  '/$lang/dashboard/analytics': typeof LangDashboardAnalyticsRoute
+  '/$lang/dashboard/notifications': typeof LangDashboardNotificationsRoute
+  '/$lang/dashboard/overview': typeof LangDashboardOverviewRoute
+  '/$lang/dashboard/saved-reports': typeof LangDashboardSavedReportsRoute
+  '/$lang/dashboard/trade-history': typeof LangDashboardTradeHistoryRoute
+  '/$lang/dashboard/user-reports': typeof LangDashboardUserReportsRoute
+  '/$lang/dashboard/': typeof LangDashboardIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/$lang'
+    | '/$lang/dashboard'
+    | '/$lang/projects'
+    | '/$lang/reporting'
+    | '/$lang/tasks'
+    | '/$lang/users'
+    | '/$lang/'
+    | '/$lang/dashboard/analytics'
+    | '/$lang/dashboard/notifications'
+    | '/$lang/dashboard/overview'
+    | '/$lang/dashboard/saved-reports'
+    | '/$lang/dashboard/trade-history'
+    | '/$lang/dashboard/user-reports'
+    | '/$lang/dashboard/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/$lang/projects'
+    | '/$lang/reporting'
+    | '/$lang/tasks'
+    | '/$lang/users'
+    | '/$lang'
+    | '/$lang/dashboard/analytics'
+    | '/$lang/dashboard/notifications'
+    | '/$lang/dashboard/overview'
+    | '/$lang/dashboard/saved-reports'
+    | '/$lang/dashboard/trade-history'
+    | '/$lang/dashboard/user-reports'
+    | '/$lang/dashboard'
+  id:
+    | '__root__'
+    | '/$lang'
+    | '/$lang/dashboard'
+    | '/$lang/projects'
+    | '/$lang/reporting'
+    | '/$lang/tasks'
+    | '/$lang/users'
+    | '/$lang/'
+    | '/$lang/dashboard/analytics'
+    | '/$lang/dashboard/notifications'
+    | '/$lang/dashboard/overview'
+    | '/$lang/dashboard/saved-reports'
+    | '/$lang/dashboard/trade-history'
+    | '/$lang/dashboard/user-reports'
+    | '/$lang/dashboard/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
+  LangRouteRoute: typeof LangRouteRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
+  LangRouteRoute: LangRouteRouteWithChildren,
 }
 
 export const routeTree = rootRoute
@@ -77,11 +384,80 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/"
+        "/$lang"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
+    "/$lang": {
+      "filePath": "$lang/route.tsx",
+      "children": [
+        "/$lang/dashboard",
+        "/$lang/projects",
+        "/$lang/reporting",
+        "/$lang/tasks",
+        "/$lang/users",
+        "/$lang/"
+      ]
+    },
+    "/$lang/dashboard": {
+      "filePath": "$lang/dashboard/route.tsx",
+      "parent": "/$lang",
+      "children": [
+        "/$lang/dashboard/analytics",
+        "/$lang/dashboard/notifications",
+        "/$lang/dashboard/overview",
+        "/$lang/dashboard/saved-reports",
+        "/$lang/dashboard/trade-history",
+        "/$lang/dashboard/user-reports",
+        "/$lang/dashboard/"
+      ]
+    },
+    "/$lang/projects": {
+      "filePath": "$lang/projects.tsx",
+      "parent": "/$lang"
+    },
+    "/$lang/reporting": {
+      "filePath": "$lang/reporting.tsx",
+      "parent": "/$lang"
+    },
+    "/$lang/tasks": {
+      "filePath": "$lang/tasks.tsx",
+      "parent": "/$lang"
+    },
+    "/$lang/users": {
+      "filePath": "$lang/users.tsx",
+      "parent": "/$lang"
+    },
+    "/$lang/": {
+      "filePath": "$lang/index.tsx",
+      "parent": "/$lang"
+    },
+    "/$lang/dashboard/analytics": {
+      "filePath": "$lang/dashboard/analytics.tsx",
+      "parent": "/$lang/dashboard"
+    },
+    "/$lang/dashboard/notifications": {
+      "filePath": "$lang/dashboard/notifications.tsx",
+      "parent": "/$lang/dashboard"
+    },
+    "/$lang/dashboard/overview": {
+      "filePath": "$lang/dashboard/overview.tsx",
+      "parent": "/$lang/dashboard"
+    },
+    "/$lang/dashboard/saved-reports": {
+      "filePath": "$lang/dashboard/saved-reports.tsx",
+      "parent": "/$lang/dashboard"
+    },
+    "/$lang/dashboard/trade-history": {
+      "filePath": "$lang/dashboard/trade-history.tsx",
+      "parent": "/$lang/dashboard"
+    },
+    "/$lang/dashboard/user-reports": {
+      "filePath": "$lang/dashboard/user-reports.tsx",
+      "parent": "/$lang/dashboard"
+    },
+    "/$lang/dashboard/": {
+      "filePath": "$lang/dashboard/index.tsx",
+      "parent": "/$lang/dashboard"
     }
   }
 }
