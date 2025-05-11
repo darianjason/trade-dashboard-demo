@@ -10,6 +10,7 @@ A demo project complete with routing, i18n and l10n.
 - [React](https://react.dev/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [TanStack Router](https://tanstack.com/router)
+- [TanStack Table](https://tanstack.com/table)
 - [react-i18next](https://react.i18next.com/)
 
 ### Additional Libraries & Tools
