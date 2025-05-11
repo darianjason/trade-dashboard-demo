@@ -12,5 +12,7 @@
   "next": "Berikutnya",
   "processing": "Pemrosesan",
   "success": "Sukses",
-  "declined": "Ditolak"
+  "declined": "Ditolak",
+  "orderAmount": "{{amount, currency(IDR)}}",
+  "deliveryDate": "{{date, datetime(day: '2-digit'; month:'short'; year:'numeric')}}"
 }

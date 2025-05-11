@@ -13,5 +13,7 @@
   "next": "Next",
   "processing": "Processing",
   "success": "Success",
-  "declined": "Declined"
+  "declined": "Declined",
+  "orderAmount": "{{amount, currency(USD)}}",
+  "deliveryDate": "{{date, datetime(month:'short'; day:'2-digit'; year:'numeric')}}"
 }
