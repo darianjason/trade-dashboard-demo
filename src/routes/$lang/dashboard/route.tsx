@@ -5,7 +5,6 @@ import {
   useLoaderData,
   useParams,
 } from "@tanstack/react-router";
-import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Search } from "lucide-react";
 import i18n from "@/i18n";
@@ -25,9 +24,7 @@ const DashboardLayoutComponent = () => {
     from: "/$lang",
   });
 
-  useEffect(() => {
-    i18n.addResourceBundle(lang, "dashboard", dashboard);
-  }, [lang, dashboard]);
+  i18n.addResourceBundle(lang, "dashboard", dashboard);
 
   const { t } = useTranslation("dashboard");
 
