@@ -136,6 +136,10 @@ function DataTableColumnHeader<TData extends Trade, TValue>({
   title,
   className,
 }: DataTableColumnHeaderProps<TData, TValue>) {
+  if (!column.getCanSort()) {
+    return <span className={cn(className)}>{title}</span>;
+  }
+
   return (
     <div className={cn("flex items-center gap-1", className)}>
       <Button
