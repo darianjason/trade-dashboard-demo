@@ -24,7 +24,9 @@ const DashboardLayoutComponent = () => {
     from: "/$lang",
   });
 
-  i18n.addResourceBundle(lang, "dashboard", dashboard);
+  if (!i18n.hasResourceBundle(lang, "dashboard")) {
+    i18n.addResourceBundle(lang, "dashboard", dashboard);
+  }
 
   const { t } = useTranslation("dashboard");
 

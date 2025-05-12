@@ -28,7 +28,9 @@ const LangLayoutComponent = () => {
   });
 
   useEffect(() => {
-    i18n.addResourceBundle(lang, "common", common, true, true);
+    if (!i18n.hasResourceBundle(lang, "common")) {
+      i18n.addResourceBundle(lang, "common", common);
+    }
     i18n.changeLanguage(lang);
   }, [lang, common]);
 
