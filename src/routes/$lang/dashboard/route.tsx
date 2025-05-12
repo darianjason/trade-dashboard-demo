@@ -1,32 +1,20 @@
-import {
-  Link,
-  Outlet,
-  createFileRoute,
-  useLoaderData,
-  useParams,
-} from "@tanstack/react-router";
+import { Outlet, createFileRoute, useParams } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { Search } from "lucide-react";
 import i18n from "@/i18n";
 
-const getTranslations = async ({ params }: { params: { lang: string } }) => {
+const loadTranslations = async ({ params }: { params: { lang: string } }) => {
   const res = await fetch(`/locales/${params.lang}/dashboard.json`);
   if (!res.ok) throw new Error(`Missing translations for ${params.lang}`);
+  const translations = await res.json();
 
-  return res.json();
+  i18n.addResourceBundle(params.lang, "dashboard", translations);
 };
 
 const DashboardLayoutComponent = () => {
-  const dashboard = useLoaderData({
-    from: "/$lang/dashboard",
-  });
   const { lang } = useParams({
     from: "/$lang",
   });
-
-  if (!i18n.hasResourceBundle(lang, "dashboard")) {
-    i18n.addResourceBundle(lang, "dashboard", dashboard);
-  }
 
   const { t } = useTranslation("dashboard");
 
@@ -75,6 +63,6 @@ const DashboardLayoutComponent = () => {
 };
 
 export const Route = createFileRoute("/$lang/dashboard")({
-  loader: getTranslations,
+  loader: loadTranslations,
   component: DashboardLayoutComponent,
 });
