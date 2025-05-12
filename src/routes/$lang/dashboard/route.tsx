@@ -1,4 +1,9 @@
-import { Outlet, createFileRoute, useParams } from "@tanstack/react-router";
+import {
+  Link,
+  Outlet,
+  createFileRoute,
+  useParams,
+} from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 import { Search } from "lucide-react";
 import i18n from "@/i18n";
